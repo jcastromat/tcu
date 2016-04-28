@@ -1,3 +1,8 @@
 <h1><%= @item.name %></h1>
 <p><%= @item.description %></p>
+<%= link_to "delete", item_path(@item), method: :delete,
+    data: {confirm: "Really delete the item?"}
+ %>
+ <%= link_to "edit", edit_item_path(@item) %>
+ 
 <%= link_to "<< Back to Items List", items_path %>
