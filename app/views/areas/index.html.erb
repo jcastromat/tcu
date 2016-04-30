@@ -1,0 +1,12 @@
+<h1>All Areas</h1>
+
+<ul id="areas">
+  <% @areas.each do |area| %>
+    <li>
+      <%= link_to area.name, area_path(area), class: 'area_name'%>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Create a New Area", new_area_path, class: "new_area" %>

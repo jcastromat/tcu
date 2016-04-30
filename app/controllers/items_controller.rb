@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  description :string           not null
+#  area_id     :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+
 include ItemsHelper
 
 class ItemsController < ApplicationController
@@ -11,11 +24,12 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @area = Area.find(params[:area_id])
     @item = Item.new
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.create(item_params)
     @item.save
     redirect_to item_path(@item)
   end

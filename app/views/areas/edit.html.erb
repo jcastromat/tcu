@@ -1,0 +1,32 @@
+<h1>Edit an Area</h1>
+
+
+<% if false %>
+    <%= form_for(@area) do |f| %>
+      <ul>
+      <% @area.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+<% end %>
+
+<form action= "<%=area_url(@area)%>" method="POST">
+
+  <input type='hidden' name='_method' value='PATCH'/>
+
+  <label for="area_name">Area Name</label>
+  <input type="text" name="area[name]" id="area_name" value="<%=@area.name%>">
+  <br>
+
+  <input type="submit" value="Edit area!">
+</form>
+
+<p><%= button_to "Back", area_url(@area), method: :get %> </p>

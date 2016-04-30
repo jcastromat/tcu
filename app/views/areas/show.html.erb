@@ -1,0 +1,18 @@
+<h1><%= @area.name %></h1>
+
+<ul>
+  <% @area.items.each do |item| %>
+    <li>
+      <%= link_to "#{item.name}", item_path(item) %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+
+<p><%= button_to "Add Item", new_area_item_path(@area), method: :get %> </p>
+<p><%= button_to "Edit", edit_area_path, method: :get%> </p>
+<p> <%= button_to "Delete", area_path(@area), method: :delete,
+    data: {confirm: "Really delete the area?"} %>
+</p>
+<p><%= button_to "All Areas", areas_path, method: :get %> </p>
