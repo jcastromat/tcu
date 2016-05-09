@@ -9,8 +9,6 @@
 </ul>
 <br>
 
-
-<p><%= button_to "Add Item", new_area_item_path(@area), method: :get %> </p>
 <p><%= button_to "Edit", edit_area_path, method: :get%> </p>
 <p> <%= button_to "Delete", area_path(@area), method: :delete,
     data: {confirm: "Really delete the area?"} %>

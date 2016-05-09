@@ -1,20 +1,18 @@
 <h1>Edit an Item</h1>
 
-<%= form_for(@item) do |f| %>
-  <ul>
-  <% @item.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<form action= "<%=item_url(@item)%>" method="POST">
+
+  <input type='hidden' name='_method' value='PATCH'/>
+
+  <label for="item_name">Name</label>
+  <input type="text" name="item[name]" id="item_name" value="<%=@item.name%>">
+  <br>
+
+  <label for="item_description">Description</label>
+  <input type="text" name="item[description]" id="item_description" value="<%=@item.description%>">
+  <br>
+
+  <input type="submit" value="Edit item!">
+</form>
+
+<p><%= button_to "Back", areas_url, method: :get %> </p>

@@ -1,0 +1,23 @@
+<table class="table table-striped" cellpadding="0" cellspacing="0" width="100%">
+  <thead hidden>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+        <td hidden><%= item.id %></td>
+        <td width="20%", style='color:BLUE;'><%= item.name%></td>
+        <td width="70%"><%= item.description %></td>
+        <td width="10%">
+          <%= link_to "Edit", edit_item_path(item), :class => 'btn btn-mini' %>
+          <%= link_to "Delete", item_path(item), :method => :delete, data: {:confirm => 'Are you sure?'}, :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+
+  </tbody>
+</table>

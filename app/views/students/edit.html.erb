@@ -1,0 +1,22 @@
+<h1>Edit a Student</h1>
+
+<form action= "<%=student_url(@student)%>" method="POST">
+
+  <input type='hidden' name='_method' value='PATCH'/>
+
+  <label for="student_carnet">Carnet</label>
+  <input type="text" name="student[carnet]" id="student_carnet" value="<%=@student.carnet%>">
+  <br>
+
+  <label for="student_firstName">First Name</label>
+  <input type="text" name="student[firstName]" id="student_firstName" value="<%=@student.firstName%>">
+  <br>
+
+  <label for="student_lastName">Last Name</label>
+  <input type="text" name="student[lastName]" id="student_lastName" value="<%=@student.lastName%>">
+  <br>
+
+  <input type="submit" value="Edit student!">
+</form>
+
+<p><%= button_to "Back", projects_url, method: :get %> </p>

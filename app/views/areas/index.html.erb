@@ -1,9 +1,14 @@
 <h1>All Areas</h1>
 
+
 <ul id="areas">
   <% @areas.each do |area| %>
     <li>
-      <%= link_to area.name, area_path(area), class: 'area_name'%>
+    <%= link_to area.name, area_path(area), class: 'area_name', :style=>'color:RED;'%>
+    <br/>
+    <%= render partial: 'areas/item', collection: area.items %>
+    <br/>
+    <%= render partial: 'items/form', locals: { area: area }%>
     </li>
   <% end %>
 </ul>

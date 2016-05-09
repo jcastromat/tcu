@@ -1,6 +1,3 @@
-<h1>Create a New Item :)</h1>
-
-
 <form method='post' action="/items">
 
   <label for="item_name">Name:</label>
@@ -11,14 +8,17 @@
   <input type="text" name='item[description]', id='item_description'>
   <br>
 
-  <label for="item_area">Area:</label>
-  <select name="item[area_id]" id = "item_area">
-    <% Area.all.each do |area| %>
-    <option value=<%= area.id %> <%= selected="selected" if @area.id == area.id %>><%= area.name %></option>
+  <label for="item_area" hidden>Area:</label>
+  <select name="item[area_id]" id = "item_area" hidden>
+    <% Area.all.each do |a| %>
+    <option value=<%= area.id %>
+      <%= selected="selected" if area.id == a.id %>><%= a.name %>
+    </option>
     <% end %>
   </select>
-  <br>
 
   <input type="submit" value="Create item!">
+  <br/>
+  <br/>
 
 </form>

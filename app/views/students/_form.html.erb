@@ -1,0 +1,28 @@
+<form method='post' action="/students">
+
+  <label for="student_carnet">Carnet:</label>
+  <input type="text" name='student[carnet]', id='student_carnet'>
+  <br>
+
+  <label for="student_firstName">First Name:</label>
+  <input type="text" name='student[firstName]', id='student_firstName'>
+  <br>
+
+  <label for="student_lastName">Last Name:</label>
+  <input type="text" name='student[lastName]', id='student_lastName'>
+  <br>
+
+  <label for="student_project" hidden>Project:</label>
+  <select name="student[project_id]" id = "student_project" hidden>
+    <% Project.all.each do |pr| %>
+    <option value=<%= project.id %>
+      <%= selected="selected" if project.id == pr.id %>><%= pr.name %>
+    </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Create student!">
+  <br/>
+  <br/>
+
+</form>

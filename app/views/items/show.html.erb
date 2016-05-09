@@ -1,8 +1,0 @@
-<h1><%= @item.name %></h1>
-<p><%= @item.description %></p>
-<br>
-<p><%= button_to "Edit Item", edit_item_path(@item), method: :get%> </p>
-<p><%= button_to "Delete Item", item_path(@item), method: :delete,
-  data: {confirm: "Really delete the item?"}%>
-</p>
-<p><%= button_to "Back", area_path(@item.area_id), method: :get %> </p>

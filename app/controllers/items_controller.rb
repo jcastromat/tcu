@@ -31,13 +31,13 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     @item.save
-    redirect_to item_path(@item)
+    redirect_to areas_path
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path
+    redirect_to areas_path
   end
 
   def edit
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
 
     flash.notice = "Item '#{@item.name}' Updated!"
 
-    redirect_to item_path(@item)
+    redirect_to areas_path
   end
 
 end
